@@ -38,9 +38,11 @@ function onMouseMove(event) {
 }
 
 function handleClickColor(event) {
-  const color = event.target.style.backgroundColor;
-  ctx.strokeStyle = color;
-  ctx.fillStyle = color;
+  Array.from(colors).forEach((color) => color.classList.remove("select"));
+  const currentColor = event.target.style.backgroundColor;
+  ctx.strokeStyle = currentColor;
+  ctx.fillStyle = currentColor;
+  event.target.classList.add("select");
 }
 
 function handleSize(event) {
